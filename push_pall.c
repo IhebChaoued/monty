@@ -1,10 +1,33 @@
 #include "monty.h"
 
-/**
- * push - Pushes an integer onto the stack
- * @stack: A pointer to the pointer to the stack
- * @line_number: The current line number in the Monty bytecode file
- */
+int push_stack(stack_t **stack, int value)
+{
+	stack_t *new_node = malloc(sizeof(stack_t));
+
+	if (!new_node)
+	{
+		return (0);
+	}
+
+	new_node->n = value;
+	new_node->prev = NULL;
+	new_node->next = *stack;
+
+	if (*stack)
+	{
+		(*stack)->prev = new_node;
+	}
+
+	*stack = new_node;
+	return (1);
+}
+
+int is_integer(const char *str)
+{
+	(void)str;
+	return (0);
+}
+
 void push(stack_t **stack, unsigned int line_number)
 {
 	char *arg = strtok(NULL, " \t\n");
@@ -24,11 +47,6 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 }
 
-/**
- * pall - Prints all values on the stack
- * @stack: A pointer to the pointer to the stack
- * @line_number: The current line number in the Monty bytecode file
- */
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
