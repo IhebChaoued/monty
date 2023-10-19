@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 			char *value_str = strtok(NULL, " \t\n$");
 			int value = value_str ? atoi(value_str) : 0;
 
-			check_op(&stack, opcode, value, 0);
+			check_op(&stack, opcode, value);
 		}
 	}
 

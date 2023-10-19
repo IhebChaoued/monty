@@ -32,14 +32,13 @@ void push(stack_t **stack, int value)
 /**
  * pall - Prints all values on the stack
  * @stack: A pointer to the stack
- * @line_number: The current line number in the input file
  *
  * Description: This function prints all the values in the stack from top to
  * bottom. If the stack is empty, it doesn't print anything.
  *
  * Return: None
  */
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack)
 {
 	stack_t *current = *stack;
 
