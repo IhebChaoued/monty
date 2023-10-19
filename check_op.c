@@ -22,7 +22,7 @@ void check_op(stack_t **stack, const char *opcode, int value,
 	}
 	else if (strcmp(opcode, "pall") == 0)
 	{
-		pall(stack);
+		pall(stack, line_number);
 	}
 	else if (strcmp(opcode, "pint") == 0)
 	{

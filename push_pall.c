@@ -46,13 +46,13 @@ void push(stack_t **stack, int value, unsigned int line_number)
  *
  * Return: None
  */
-void pall(stack_t **stack)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 
 	while (current)
 	{
-		printf("%d\n", current->n);
+		printf("Line %u: %d\n", line_number, current->n);
 		current = current->next;
 	}
 }
