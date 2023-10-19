@@ -26,6 +26,6 @@ void check_op(stack_t **stack, const char *opcode, int value,
 	}
 	else if (strcmp(opcode, "pint") == 0)
 	{
-		pint(stack);
+		pint(stack, line_number);
 	}
 }
