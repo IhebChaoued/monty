@@ -64,7 +64,7 @@ void pint(stack_t **stack)
 {
 	if (!stack || !*stack)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n");
+		fprintf(stderr, "L: can't pint, stack empty\n");
 		exit(EXIT_FAILURE);
 	}
 
