@@ -5,6 +5,7 @@
  * @stack: A pointer to the stack
  * @opcode: The opcode to be executed
  * @value: The integer value associated with the opcode (if any)
+ * @line_number: The line number in the Monty bytecode file
  *
  * Description: This function handles the execution of different opcodes
  * in the Monty language. You can expand this function to include handling
@@ -12,11 +13,12 @@
  *
  * Return: None
  */
-void check_op(stack_t **stack, const char *opcode, int value)
+void check_op(stack_t **stack, const char *opcode, int value,
+		unsigned int line_number)
 {
 	if (strcmp(opcode, "push") == 0)
 	{
-		push(stack, value);
+		push(stack, value, line_number);
 	}
 	else if (strcmp(opcode, "pall") == 0)
 	{

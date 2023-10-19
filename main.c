@@ -12,6 +12,8 @@ int main(int argc, char *argv[])
 	FILE *file;
 	char buffer[128];
 	stack_t *stack = NULL;
+	char *opcode;
+	unsigned int line_number = 0;
 
 	if (argc != 2)
 	{
@@ -30,14 +32,15 @@ int main(int argc, char *argv[])
 
 	while (fgets(buffer, sizeof(buffer), file))
 	{
-		char *opcode = strtok(buffer, " \t\n$");
+		line_number++;
+		opcode = strtok(buffer, " \t\n$");
 
 		if (opcode)
 		{
 			char *value_str = strtok(NULL, " \t\n$");
 			int value = value_str ? atoi(value_str) : 0;
 
-			check_op(&stack, opcode, value);
+			push(&stack, value, line_number);
 		}
 	}
 
@@ -45,4 +48,3 @@ int main(int argc, char *argv[])
 
 	return (0);
 }
-
