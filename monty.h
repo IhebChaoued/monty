@@ -44,4 +44,6 @@ void check_op(stack_t **stack, const char *opcode, int value,
 
 void pint(stack_t **stack, unsigned int line_number);
 
+void swap(stack_t **stack, unsigned int line_number);
+
 #endif /* MONTY_H */
