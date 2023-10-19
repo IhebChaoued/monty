@@ -40,6 +40,7 @@ void push(stack_t **stack, int value, unsigned int line_number)
 /**
  * pall - Prints all values on the stack
  * @stack: A pointer to the stack
+ * @line_number: The line number in the Monty bytecode file
  *
  * Description: This function prints all the values in the stack from top to
  * bottom. If the stack is empty, it doesn't print anything.
