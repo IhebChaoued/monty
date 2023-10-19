@@ -5,7 +5,6 @@
  * @stack: A pointer to the stack
  * @opcode: The opcode to be executed
  * @value: The integer value associated with the opcode (if any)
- * @line_number: The current line number in the input file
  *
  * Description: This function handles the execution of different opcodes
  * in the Monty language. You can expand this function to include handling
