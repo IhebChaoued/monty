@@ -1,17 +1,17 @@
 #include "monty.h"
-#include <stdio.h>
 
+/**
+ * main - Entry point of the program
+ * @argc: Number of command-line arguments
+ * @argv: Array of command-line arguments
+ * Return: 0 on success, EXIT_FAILURE on failure
+ */
 int main(int argc, char *argv[])
 {
-	char *filename;
+	const char *filename;
 	FILE *file;
-	char *line = NULL;
-	size_t len = 0;
-	unsigned int line_number = 0;
+	char buffer[128];
 	stack_t *stack = NULL;
-	char *instruction = strtok(line, " \t\n");
-	char *arg = strtok(NULL, " \t\n");
-	int n = atoi(arg);
 
 	if (argc != 2)
 	{
@@ -28,30 +28,21 @@ int main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 	}
 
-	while (getline(&line, &len, file) != -1)
+	while (fgets(buffer, sizeof(buffer), file))
 	{
-		line_number++;
+		char *opcode = strtok(buffer, " \t\n$");
 
-		if (instruction)
+		if (opcode)
 		{
-			if (strcmp(instruction, "push") == 0)
-			{
-				if (arg)
-				{
-					push_stack(&stack, n);
-				}
-			}
-			else if (strcmp(instruction, "pall") == 0)
-			{
-				pall(&stack, line_number);
-			}
+			char *value_str = strtok(NULL, " \t\n$");
+			int value = value_str ? atoi(value_str) : 0;
+
+			check_op(&stack, opcode, value, 0);
 		}
 	}
 
-	if (line)
-		free(line);
-
 	fclose(file);
 
-	return (EXIT_SUCCESS);
+	return (0);
 }
+
