@@ -42,5 +42,4 @@ void check_op(stack_t **stack, const char *opcode, int value);
 
 void pint(stack_t **stack);
 
-void f_swap(stack_t **head, unsigned int counter);
 #endif /* MONTY_H */
