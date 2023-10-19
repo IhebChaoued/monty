@@ -3,6 +3,7 @@
 /**
  * pint - Prints the value at the top of the stack
  * @stack: A pointer to the stack
+ * @line_number: The line number in the Monty bytecode file
  *
  * Description: This function prints the value
  * at the top of the stack, followed by a new line.
